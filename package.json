@@ -4,7 +4,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack serve --mode development",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
   "keywords": [],
