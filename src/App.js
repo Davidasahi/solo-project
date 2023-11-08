@@ -3,7 +3,7 @@ import Captcha from './Components/Captcha.js';
 
 const App = () => {
   return (
-    <div>
+    <div class="main">
       <h1>Captcha Doggy challenge</h1>
       <div class="send">
         <input type="test" id="name" placeholder="Your name"></input>

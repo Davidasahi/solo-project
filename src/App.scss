@@ -11,14 +11,14 @@ h1 {
   text-align: center;
 }
 
-.send {
+.main {
   display: table;
   text-align: center;
-  padding: 10px;
+  width: 300px;
 }
 
 input {
-  width: 500px;
+  width: 300px;
   height: 30px;
   margin: 20px;
   border-radius: 4px;
@@ -37,6 +37,7 @@ button {
   height: 300px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
 }
 
 .Captcha-image > div {
