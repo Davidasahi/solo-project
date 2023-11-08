@@ -1,7 +1,7 @@
 import React from 'react';
 
 const imageLocations = new Array(9).fill(null).map((value, index) => {
-  return `/src/photos/image01.jpeg`;
+  return `/src/photos?=index${index}.png`;
 });
 
 console.log('This is testing: ', imageLocations);

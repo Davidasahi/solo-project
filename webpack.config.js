@@ -13,6 +13,9 @@ module.exports = {
   ],
   devServer: {
     port: 3030, // you can change the port
+    proxy: {
+      '/captcha': 'http://localhost:3000/',
+    },
   },
   module: {
     rules: [

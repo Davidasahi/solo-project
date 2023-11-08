@@ -1,37 +1,20 @@
-const fs = require('fs');
-const { newCaptchaImages } = require('./captchaImage');
+// const fs = require('fs');
+// const express = require('express');
+// const router = express.Router();
 
-async function getCaptchaImage(req, res) {
-  const index = req.params.index;
-  if (!req.session.captchaImages) {
-    req.session.captchaImages = newCaptchaImages();
-    await req.session.save();
-  }
+// // function getCaptchaImage(req, res) {
+// //   const index = req.query.index;
+// //   console.log({ index });
 
-  res.setHeader('Content-Type', 'image/png');
-  const imageBuffer = fs.readFileSync(req.session.captchaImages[index]);
-  res.send(imageBuffer);
-}
+// //   res.setHeader('Content-Type', 'image/png');
+// //   const imageBuffer = fs.readFileSync('./src/photos/dog1.png');
+// //   res.send(imageBuffer);
+// // }
 
-async function validateCaptcha(req, res) {
-  const { message, selectedIndexes } = req.body;
-  const dogsIndexes = req.session.captchaImages
-    .map((path, index) => {
-      return path.includes('/dogs-and-muffins/dog') ? index : -1;
-    })
-    .filter((index) => index !== -1);
+// router.get('/', (req, res) => {
+//   res.setHeader('Content-Type', 'image/png');
+//   const imageBuffer = fs.readFileSync('./src/photos/dog1.png');
+//   res.send(imageBuffer);
+// });
 
-  const captchaIsOk =
-    JSON.stringify(dogsIndexes) === JSON.stringify(selectedIndexes.sort());
-
-  req.session.captchaImages = newCaptchaImages();
-  await req.session.save();
-
-  const sent = captchaIsOk;
-  res.json({ captchaIsOk, sent });
-}
-
-module.exports = {
-  getCaptchaImage,
-  validateCaptcha,
-};
+// module.exports = getCaptchaImage;
