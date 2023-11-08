@@ -2,12 +2,43 @@
 
 body {
   background: $googlegrey;
+  width: 500px;
+  margin: 0 auto;
 }
-
-// board {
-//   color: $lightOrange;
-// }
 
 h1 {
   color: $darkBlue;
+  text-align: center;
+}
+
+.send {
+  display: table;
+  text-align: center;
+  padding: 10px;
+}
+
+input {
+  width: 500px;
+  height: 30px;
+  margin: 20px;
+  border-radius: 4px;
+}
+
+button {
+  width: 200px;
+  margin: 20px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.Captcha-image {
+  background-color: #ffff;
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.Captcha-image > div {
+  border: 5px solid red;
 }

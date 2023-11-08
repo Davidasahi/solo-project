@@ -1,14 +1,19 @@
 import React from 'react';
-
-// import Box from './Components/Box';
-// import Row from './Components/Row';
+import Captcha from './Components/Captcha.js';
 
 const App = () => {
-  return;
-
-  // <div id="board">
-  <h1>Hello React </h1>;
-  // </div>;
+  return (
+    <div>
+      <h1>Captcha Doggy challenge</h1>
+      <div class="send">
+        <input type="test" id="name" placeholder="Your name"></input>
+        <div>
+          <Captcha />
+        </div>
+        <button id="button">Send your answer!</button>
+      </div>
+    </div>
+  );
 };
 
 export default App;
