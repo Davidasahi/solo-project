@@ -26,7 +26,6 @@ const App = () => {
       <button id="button" onClick={handleClick}>
         Shuffle!
       </button>
-      <button id="button">More challenge</button>
     </div>
   );
 };

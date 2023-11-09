@@ -1,31 +1,33 @@
 import React, { useState, useEffect } from 'react';
 
-// Array containing paths to 9 images
+// Arrays containing paths to 9 images
 const imageLocations01 = new Array(9).fill(null).map((value, index) => {
   return `/src/photos/dog${index}.png`;
 });
-
 const imageLocations02 = new Array(9).fill(null).map((value, index) => {
   return `/src/photos/poodle${index}.png`;
 });
 
+const initialimageLocations = [
+  imageLocations01,
+  imageLocations02,
+  // Add more arrays as needed
+];
+
 const Captcha = ({ key }) => {
-  // State to hold the shuffled images
   const [shuffledImages, setShuffledImages] = useState([]);
-
-  // Effect to shuffle images when the key changes
-  useEffect(() => {
-    // Shuffle the images when the key changes
-    setShuffledImages(() => imageLocations02.sort(() => Math.random() - 0.5));
-  }, [key]);
-
-  // State to keep track of selected images
+  const [imageLocationsIndex, setImageLocationsIndex] = useState(0);
   const [selectedImages, setSelectedImages] = useState(new Set());
 
-  // Function to handle image click
+  // Effect to shuffle images when the key changes or when imageLocationsIndex changes
+  useEffect(() => {
+    setShuffledImages(
+      initialimageLocations[imageLocationsIndex].sort(() => Math.random() - 0.5)
+    );
+  }, [key, imageLocationsIndex]);
+
   const handleImageClick = (index) => {
     const updatedSet = new Set(selectedImages);
-    // Toggle selection: add if not selected, delete if already selected
     if (updatedSet.has(index)) {
       updatedSet.delete(index);
     } else {
@@ -34,12 +36,18 @@ const Captcha = ({ key }) => {
     setSelectedImages(updatedSet);
   };
 
-  // Map through shuffled images to create elements
+  const handleChangeImageSets = () => {
+    // Increment the index to display the next set of images
+    setImageLocationsIndex(
+      (prevIndex) => (prevIndex + 1) % initialimageLocations.length
+    );
+    setSelectedImages(new Set()); // Reset selected images when changing sets
+  };
+
   const imageElements = shuffledImages.map((imageUrl, index) => {
     const isSelected = selectedImages.has(index);
     return (
       <div key={index} onClick={() => handleImageClick(index)}>
-        {/* Render images with opacity based on selection */}
         <img src={imageUrl} alt="" style={{ opacity: isSelected ? 0.5 : 1 }} />
       </div>
     );
@@ -49,8 +57,21 @@ const Captcha = ({ key }) => {
     <div>
       <h2>Select the dogs</h2>
       <div className="Captcha-image">{imageElements}</div>
+      <button id="changebutton" onClick={handleChangeImageSets}>
+        More challenge!
+      </button>
     </div>
   );
 };
 
 export default Captcha;
+
+// Explanation of Changes:
+// 1. Added imageLocationsIndex state
+//to keep track of the current index of initialimageLocations.
+// 2. Updated the useEffect to shuffle images based
+//on the index from initialimageLocations.
+// 3. handleChangeImageSets function now changes the imageLocationsIndex
+// state to cycle through different sets of images and resets the selected images.
+// 4. Updated the button in the return statement to trigger the handleChangeImageSets function on click.
+// 5. This modified code allows you to iterate through the arrays in initialimageLocations one by one each time the "More challenge!" button is clicked.
