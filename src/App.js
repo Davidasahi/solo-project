@@ -18,7 +18,7 @@ const App = () => {
   //return on index.html
   return (
     <div class="main">
-      <h1>Captcha Doggy challenge</h1>
+      <h1>Captcha challenge</h1>
       <input type="test" id="name" ref={setRef} placeholder="Your name"></input>
       <div>
         <Captcha key={key} />
