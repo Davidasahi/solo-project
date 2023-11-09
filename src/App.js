@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import Captcha from './Components/Captcha.js';
 
 const App = () => {
-  function handleClick() {}
   const [key, setKey] = useState(0);
 
+  //Shuffle button function click
   function handleClick() {
     setKey((prevKey) => prevKey + 1);
   }
 
+  //return on index.html
   return (
     <div class="main">
       <h1>Captcha Doggy challenge</h1>

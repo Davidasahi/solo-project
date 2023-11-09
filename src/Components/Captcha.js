@@ -5,12 +5,10 @@ const imageLocations = new Array(9).fill(null).map((value, index) => {
 });
 
 const captcha = ({ key }) => {
-  console.log('This is: ', imageLocations);
-
+  //Shulle the images
   const shuffledImages = imageLocations.sort(() => Math.random() - 0.5);
 
-  console.log('This is: ', shuffledImages);
-
+  //Render the image on 9 boxes on index.html
   const imageElements = shuffledImages.map((imageUrl, index) => {
     return (
       <div key={index}>
@@ -19,6 +17,7 @@ const captcha = ({ key }) => {
     );
   });
 
+  //return on index.html
   return (
     <div>
       <h2>Select the dogs</h2>
