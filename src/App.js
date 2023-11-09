@@ -2,6 +2,8 @@ import React from 'react';
 import Captcha from './Components/Captcha.js';
 
 const App = () => {
+  function handleClick() {}
+
   return (
     <div class="main">
       <h1>Captcha Doggy challenge</h1>
@@ -9,7 +11,9 @@ const App = () => {
       <div>
         <Captcha />
       </div>
-      <button id="button">Send your answer!</button>
+      <button id="button" onClick={handleClick}>
+        Send your answer!
+      </button>
     </div>
   );
 };
