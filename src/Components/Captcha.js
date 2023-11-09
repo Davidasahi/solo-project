@@ -6,7 +6,7 @@ const imageLocations01 = new Array(9).fill(null).map((value, index) => {
 });
 
 const imageLocations02 = new Array(9).fill(null).map((value, index) => {
-  return `/src/photos/puddle${index}.png`;
+  return `/src/photos/poodle${index}.png`;
 });
 
 const Captcha = ({ key }) => {
@@ -16,7 +16,7 @@ const Captcha = ({ key }) => {
   // Effect to shuffle images when the key changes
   useEffect(() => {
     // Shuffle the images when the key changes
-    setShuffledImages(() => imageLocations01.sort(() => Math.random() - 0.5));
+    setShuffledImages(() => imageLocations02.sort(() => Math.random() - 0.5));
   }, [key]);
 
   // State to keep track of selected images
