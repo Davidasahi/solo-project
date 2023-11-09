@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 // Array containing paths to 9 images
-const imageLocations = new Array(9).fill(null).map((value, index) => {
+const imageLocations01 = new Array(9).fill(null).map((value, index) => {
   return `/src/photos/dog${index}.png`;
+});
+
+const imageLocations02 = new Array(9).fill(null).map((value, index) => {
+  return `/src/photos/puddle${index}.png`;
 });
 
 const Captcha = ({ key }) => {
@@ -12,7 +16,7 @@ const Captcha = ({ key }) => {
   // Effect to shuffle images when the key changes
   useEffect(() => {
     // Shuffle the images when the key changes
-    setShuffledImages(() => imageLocations.sort(() => Math.random() - 0.5));
+    setShuffledImages(() => imageLocations01.sort(() => Math.random() - 0.5));
   }, [key]);
 
   // State to keep track of selected images
