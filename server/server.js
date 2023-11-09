@@ -7,18 +7,14 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get('/captcha/:index', (req, res) => {
-  console.log('can you see me?');
   const index = req.params.index;
+  res.setHeader('Content-Type', 'image/png');
   const imagePath = path.resolve(__dirname, `../src/photos/dog${index}.png`);
   res.sendFile(imagePath, (err) => {
     if (err) {
-      // Handle file sending error
       res.status(404).send('File not found');
     }
   });
-
-  // res.setHeader('Content-Type', 'image/png');
-  // res.sendFile(imageBuffer);
 });
 
 app.all('*', (req, res) => {
