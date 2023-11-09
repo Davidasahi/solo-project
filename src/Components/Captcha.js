@@ -4,8 +4,11 @@ const imageLocations = new Array(9).fill(null).map((value, index) => {
   return `/src/photos/dog${index}.png`;
 });
 
-const captcha = () => {
-  const imageElements = imageLocations.map((imageUrl, index) => {
+const captcha = ({ key }) => {
+  console.log('This is: ', imageLocations);
+  const shuffledImages = imageLocations.sort(() => Math.random() - 0.5);
+  console.log('This is: ', shuffledImages);
+  const imageElements = shuffledImages.map((imageUrl, index) => {
     return (
       <div key={index}>
         <img src={imageUrl} alt="" />
