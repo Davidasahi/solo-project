@@ -6,6 +6,11 @@ const PORT = 3000;
 
 app.use(express.json());
 
+app.use(
+  '/src/photos',
+  express.static(path.resolve(__dirname, '../src/photos'))
+);
+
 app.get('/captcha/:index', (req, res) => {
   const index = req.params.index;
   res.setHeader('Content-Type', 'image/png');

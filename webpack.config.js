@@ -15,7 +15,7 @@ module.exports = {
     port: 3030, // you can change the port
     proxy: {
       '/captcha': 'http://localhost:3000/',
-      '/src/photos': 'http://localhost:3000/',
+      '/src': 'http://localhost:3000/',
     },
   },
   module: {

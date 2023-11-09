@@ -47,7 +47,7 @@ import React from 'react';
 //   return `/src/photos/dog${index}.png`;
 // });
 
-// console.log('What is it ', imageLocations);
+console.log('What is it ', imageLocations);
 
 const imageLocations = new Array(9).fill(null).map((value, index) => {
   // return `/src/photos?=index${index}.png`;
