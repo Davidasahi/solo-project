@@ -5,12 +5,16 @@ const imageLocations01 = new Array(9).fill(null).map((value, index) => {
   return `/src/photos/dog${index}.png`;
 });
 const imageLocations02 = new Array(9).fill(null).map((value, index) => {
-  return `/src/photos/poodle${index}.png`;
+  return `/src/photos/Chihuahua${index}.png`;
+});
+const imageLocations03 = new Array(9).fill(null).map((value, index) => {
+  return `/src/photos/Poodle${index}.png`;
 });
 
 const initialimageLocations = [
   imageLocations01,
   imageLocations02,
+  imageLocations03,
   // Add more arrays as needed
 ];
 
@@ -22,7 +26,7 @@ const Captcha = ({ key }) => {
   // Effect to shuffle images when the key changes or when imageLocationsIndex changes
   useEffect(() => {
     setShuffledImages(
-      initialimageLocations[imageLocationsIndex].sort(() => Math.random() - 0.5)
+      initialimageLocations[imageLocationsIndex].sort(() => Math.random() - 0.6)
     );
   }, [key, imageLocationsIndex]);
 
