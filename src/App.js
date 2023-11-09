@@ -5,13 +5,11 @@ const App = () => {
   return (
     <div class="main">
       <h1>Captcha Doggy challenge</h1>
-      <div class="send">
-        <input type="test" id="name" placeholder="Your name"></input>
-        <div>
-          <Captcha />
-        </div>
-        <button id="button">Send your answer!</button>
+      <input type="test" id="name" placeholder="Your name"></input>
+      <div>
+        <Captcha />
       </div>
+      <button id="button">Send your answer!</button>
     </div>
   );
 };
